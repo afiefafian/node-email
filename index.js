@@ -1,6 +1,7 @@
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
+console.log(process.env);
 function mailer() {
   return nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
@@ -18,7 +19,7 @@ const emailTransport = mailer();
 console.log('Process send email');
 
 emailTransport.sendMail({
-  from: process.env.DEFAULT_EMAIL,
+  from: process.env.EMAIL_DEFAULT,
   to: process.env.SEND_TO,
   subject: `Tickets for Jelajahin booking`,
   html: '<h4>Test 123 123</h4>',
